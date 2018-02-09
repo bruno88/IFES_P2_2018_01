@@ -9,12 +9,13 @@ public class ExemploIO3 {
 	public static void main(String[] args) {
 		String result = "", nome, sobrenome, curso, CPF;
 		int idade;
-		
+
 		// Exemplo de leitura e conversão de tipos com JOptionPane
-		/*String aux = JOptionPane.showInputDialog(
-				"Digite sua altura");
-		double altura = Double.valueOf(aux);*/
-		
+		/*
+		 * String aux = JOptionPane.showInputDialog( "Digite sua altura"); double altura
+		 * = Double.valueOf(aux);
+		 */
+
 		// Uso do Try/Catch para qualquer exceção
 		try {
 			// Lendo dados da pessoa
@@ -33,9 +34,9 @@ public class ExemploIO3 {
 			// Mostrar aqui o nextLine
 			System.out.println("Digite seu CPF ");
 			CPF = entrada.next();
-			
+
 			entrada.close();
-			
+
 			// Imprimindo os dados da pessoa
 			result = "Seu nome é " + nome + "\n";
 			result += "Seu sobrenome é " + sobrenome + "\n";
@@ -47,8 +48,7 @@ public class ExemploIO3 {
 		} catch (Exception e) {
 			System.out.println("Houve um erro!");
 		}
-		
-		
+
 	}
 
 }
