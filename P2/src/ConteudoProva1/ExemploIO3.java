@@ -46,7 +46,7 @@ public class ExemploIO3 {
 
 			System.out.println(result);
 		} catch (Exception e) {
-			System.out.println("Houve um erro!");
+			System.out.println("Houve um erro! \n" + e);
 		}
 
 	}
