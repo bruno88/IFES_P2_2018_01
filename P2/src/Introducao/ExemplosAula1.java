@@ -2,8 +2,6 @@ package Introducao;
 
 import java.util.Scanner;
 
-import javax.swing.JOptionPane;
-
 public class ExemplosAula1 {
 
 	public static void main(String[] args) {
