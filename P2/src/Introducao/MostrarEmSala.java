@@ -1,5 +1,4 @@
 package Introducao;
-import Util.Util;
 
 public class MostrarEmSala {
 	public static void main(String[] args) {

@@ -15,7 +15,7 @@ public class L2E6 {
 
 		try {
 			// Popula o vetor
-			conjunto = Util.getVetorIntAleatorio1(conjunto, minRand, maxRand);
+			Util.getVetorIntAleatorio(conjunto, minRand, maxRand);
 			// System.out.println("digite um int");
 			// int a = entrada.nextInt();
 			// Imprime o vetor

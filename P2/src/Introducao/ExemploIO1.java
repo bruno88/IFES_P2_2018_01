@@ -1,7 +1,5 @@
 package Introducao;
 
-import Util.InOut;
-
 public class ExemploIO1 {
 
 	public static void main(String[] args) {

@@ -11,10 +11,7 @@ public class ExemplosAula1 {
 		int idade = entrada.nextInt();
 		System.out.println(idade);
 		
-		
-		
-		
-		
+		entrada.close();
 	}
 
 }

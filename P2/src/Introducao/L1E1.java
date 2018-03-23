@@ -22,5 +22,7 @@ public class L1E1 {
 		} catch (Exception e) {
 			System.out.println("Deu erro em algum lugar !!");
 		}
+		entrada.close();
+		
 	}
 }

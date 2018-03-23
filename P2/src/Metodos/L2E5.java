@@ -12,7 +12,7 @@ public class L2E5 {
 		int[] vetRepetidos = new int[tamRepetidos];
 		try {
 		// Popula o vetor
-		Util.getVetorIntAleatorio2(vetor, minRand, maxRand);
+		Util.getVetorIntAleatorio(vetor, minRand, maxRand);
 
 		// Imprime o vetor
 		Util.imprimeVetorInt(vetor);
@@ -25,7 +25,7 @@ public class L2E5 {
 
 		// Passo 2: Gerar novos valores
 		// Mostrar a questão do re-uso de código
-		Util.getVetorIntAleatorio2(vetor, minRand, maxRand);
+		Util.getVetorIntAleatorio(vetor, minRand, maxRand);
 
 		// Imprime o vetor
 		Util.imprimeVetorInt(vetor);

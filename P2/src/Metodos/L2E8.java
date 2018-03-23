@@ -10,7 +10,7 @@ public class L2E8 {
 		int[] vetor = new int[tam];
 		
 		// Popula vetor
-		Util.getVetorIntAleatorio2(vetor, 
+		Util.getVetorIntAleatorio(vetor, 
 				minRand, maxRand);
 		
 		// Imprime vetor

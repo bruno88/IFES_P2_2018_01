@@ -2,13 +2,11 @@ package Introducao;
 
 import java.util.Scanner;
 
-import javax.swing.JOptionPane;
-
 public class ExemploIO3 {
 
 	public static void main(String[] args) {
 		String result = "", nome, sobrenome, curso, CPF;
-		int idade, op = -1;
+		int idade;
 
 		// Exemplo de leitura e conversão de tipos com JOptionPane
 		/*

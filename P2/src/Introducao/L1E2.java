@@ -5,10 +5,9 @@ import java.util.Scanner;
 import Util.Util;
 
 public class L1E2 {
-	public static void main(String[] args) {
-		final int tam = 5;
-		
-		int numA, numB, numC, resp;
+	public static void main(String[] args) {		
+		int numA, numB, resp;
+		//int numC;
 		Scanner entrada = new Scanner(System.in);
 
 		try {
@@ -37,6 +36,7 @@ public class L1E2 {
 		} catch (Exception e) {
 			System.out.print("Deu erro em algum lugar !!");
 		}
+		entrada.close();
 
 	}	
 }

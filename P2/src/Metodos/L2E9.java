@@ -11,7 +11,7 @@ public class L2E9 {
 		Util.getMatrizIntAleatorio(matriz, 
 				minRand, 
 				maxRand);
-
+		
 		// Imprime matriz
 		Util.imprimeMatrizInt(matriz);
 		

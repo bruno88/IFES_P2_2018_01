@@ -11,18 +11,12 @@ public class L2E2 {
 		int[] numeros = new int [tam];
 		int[] pesos = new int [tam];
 		
-		// Populando vetores
-		// Exemplo 1: Passagem de parametro por valor
-		numeros = Util.getVetorIntAleatorio1(numeros, 
-				minRandNum, maxRandNum);
-		pesos = Util.getVetorIntAleatorio1(pesos, 
-				minRandPeso, maxRandPeso);
-		
-		// Exemplo 2: Passagem de parametro "por referência"
-		/*Util.getVetorIntAleatorio2(numeros, 
+		// Populando vetores		
+		// Passagem de parametro "por referência"
+		Util.getVetorIntAleatorio(numeros, 
 		 minRandNum, maxRandNum);
-		Util.getVetorIntAleatorio2(pesos, 
-				minRandPeso, maxRandPeso);*/
+		Util.getVetorIntAleatorio(pesos, 
+				minRandPeso, maxRandPeso);
 		
 		// Imprime o vetor
 		Util.imprimeVetorInt(numeros);

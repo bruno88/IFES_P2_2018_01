@@ -1,9 +1,5 @@
 package Introducao;
 
-import java.util.Scanner;
-
-import javax.swing.JOptionPane;
-
 public class ExemploIO4 {
 
 	public static void main(String[] args) {
