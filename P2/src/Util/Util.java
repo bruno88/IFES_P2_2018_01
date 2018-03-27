@@ -4,6 +4,8 @@ import Metodos.Extra3;
 import Metodos.L2E7;
 import Metodos.L3E1;
 import Metodos.L3E5;
+import Metodos.L3E6;
+import Metodos.L3E7;
 
 public class Util {
 	public static int soma(int numA, int numB) {
@@ -216,8 +218,7 @@ public class Util {
 		// Popula o vetor com aleatórios de min a max
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz.length; j++) {
-				matriz[i][j] = Util.geraIntAleatorio(
-						min, max);
+				matriz[i][j] = Util.geraIntAleatorio(min, max);
 			}
 
 		}
@@ -366,16 +367,15 @@ public class Util {
 			maior = Util.getMenorElemento(matriz, L3E1.maxRand);
 			for (int i = 0; i < matriz.length; i++) {
 				for (int j = 0; j < matriz.length; j++) {
-					if (matriz[i][j] > maior &&
-							!isOnArray(maiores, matriz[i][j])) {
+					if (matriz[i][j] > maior && !isOnArray(maiores, matriz[i][j])) {
 						maior = matriz[i][j];
 					}
 				}
 			}
-		maiores[L3E1.qtd] = maior;
-		L3E1.qtd++;
+			maiores[L3E1.qtd] = maior;
+			L3E1.qtd++;
 		}
-		
+
 		return maiores;
 	}
 
@@ -408,13 +408,167 @@ public class Util {
 	public static void imprimeHistorico() {
 		System.out.println("Listando transações:\n");
 		for (int i = 0; i < L3E5.qtdTransacoes; i++) {
-			System.out.println("Operação " + (i + 1) + ": " 
-						+ L3E5.nomeOperHist[i] 
-						+ " no valor de: " 
-						+ L3E5.valorOperHist[i]);
+			System.out.println(
+					"Operação " + (i + 1) + ": " 
+							+ L3E5.nomeOperHist[i] 
+							+ " no valor de: " 
+							+ L3E5.valorOperHist[i]);
 		}
 		System.out.println();
 
 	}
 
+	public static void defineTabuleiro(String[][] tabuleiro) {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro.length; j++) {
+				tabuleiro[i][j] = "_";
+			}
+		}
+
+	}
+
+	public static void imprimeTabuleiro(String[][] tabuleiro) {
+		String result = "";
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro.length; j++) {
+				result += tabuleiro[i][j] + " | ";
+			}
+			result += "\n";
+		}
+		System.out.println(result);
+
+	}
+
+	public static boolean isTuplaValida(String[][] tabuleiro, int novaLinha, int novaColuna) {
+		if (// está no intervalo (entre 0 e 2)
+		novaLinha >= 0 
+		&& novaLinha < tabuleiro.length 
+		&& novaColuna >= 0 
+		&& novaColuna < tabuleiro.length
+		// E se está livre
+		&& tabuleiro[novaLinha][novaColuna] == "_") {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public static void realizaJogada(String[][] tabuleiro, int novaLinha, int novaColuna, int jogadorAtual) {
+
+		if (jogadorAtual == 1) {
+			tabuleiro[novaLinha][novaColuna] = "O";
+			L3E6.jogadorAtual = 2;
+		} else {
+			tabuleiro[novaLinha][novaColuna] = "X";
+			L3E6.jogadorAtual = 1;
+		}
+
+	}
+
+	public static boolean verificaVitoria(String[][] tabuleiro) {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			// Checando as Linhas
+			if (tabuleiro[i][0].equals(tabuleiro[i][1]) 
+					&& tabuleiro[i][0].equals(tabuleiro[i][2])
+					&& !tabuleiro[i][0].equals("_")) {
+				inverteJogador();
+				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
+				return false;
+			}
+			// Checando as Colunas
+			if (tabuleiro[0][i].equals(tabuleiro[1][i]) 
+					&& tabuleiro[0][i].equals(tabuleiro[2][i])
+					&& !tabuleiro[0][i].equals("_")) {
+				inverteJogador();
+				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
+				return false;
+			}
+
+			// Verificando a Diagonal Principal
+			if (tabuleiro[0][0].equals(tabuleiro[1][1]) 
+					&& tabuleiro[0][0].equals(tabuleiro[2][2])
+					&& !tabuleiro[0][0].equals("_")) {
+				inverteJogador();
+				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
+				return false;
+			}
+
+			// Verificando a Diagonal Invertida
+			if (tabuleiro[0][2].equals(tabuleiro[1][1]) 
+					&& tabuleiro[0][2].equals(tabuleiro[2][0])
+					&& !tabuleiro[0][2].equals("_")) {
+				inverteJogador();
+				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
+				return false;
+			}	
+		}
+		
+		if (Util.verificaEmpate(tabuleiro)) {
+			L3E6.result = "Fim de jogo. Não há jogadas disponíveis";
+			return false;
+		}
+		
+		return true;
+
+	}
+
+	public static boolean verificaEmpate(String[][] tabuleiro) {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro.length; j++) {
+				if(tabuleiro[i][j].equals("_")){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	public static void inverteJogador() {
+		if (L3E6.jogadorAtual == 1) {
+			L3E6.jogadorAtual = 2;
+		} else {
+			L3E6.jogadorAtual = 1;
+		}
+	}
+
+	public static int[] adicionarNoVetor(int[] vetor, int numero) {
+		if (L3E7.qtdNum < vetor.length) {
+			vetor[L3E7.qtdNum] = numero;
+			L3E7.qtdNum++;
+			return vetor;
+
+		} else {
+			// Cria novo vetor
+			int[] novoVetor = new int[(vetor.length + 1)];
+
+			// transfere os dados do primeiro vetor pro segundo
+			for (int i = 0; i < vetor.length; i++) {
+				novoVetor[i] = vetor[i];
+			}
+
+			// adiciona o novo número
+			novoVetor[L3E7.qtdNum] = numero;
+			L3E7.qtdNum++;
+
+			// retorna o novo vetor
+			return novoVetor;
+		}
+	}
+
+	public static int[] removeDoVetor(int[] vetor, int numero) {
+		int[] novoVetor = new int[(vetor.length - 1)];
+
+		int novoCont = 0, removidos = 0;
+
+		for (int i = 0; i < vetor.length; i++) {
+			if (vetor[i] == numero && removidos < 1) {
+				removidos++;
+				L3E7.qtdNum--;
+			} else {
+				novoVetor[novoCont] = vetor[i];
+				novoCont++;
+			}
+		}
+		return novoVetor;
+	}
 }
