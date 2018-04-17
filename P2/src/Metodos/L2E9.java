@@ -13,7 +13,7 @@ public class L2E9 {
 				maxRand);
 		
 		// Imprime matriz
-		Util.imprimeMatrizInt(matriz);
+		Util.imprimeMatriz(matriz);
 		
 		// Busca a linha do Maior Elemento
 		int linha = Util.getLinhaDoMaiorElemento(matriz, minRand);

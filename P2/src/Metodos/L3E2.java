@@ -24,7 +24,7 @@ public class L3E2 {
 			Util.getMatrizIntAleatorio(matriz, minRand, maxRand);
 
 			// Imprime matriz
-			Util.imprimeMatrizInt(matriz);
+			Util.imprimeMatriz(matriz);
 
 			// Obtém maiores
 			maiores = Util.getNMaiores(matriz, N);

@@ -96,12 +96,14 @@ public class L3E3 {
 					break;
 				case 0:
 					System.out.println("Programa encerrado por comando do usuário");
+					break;
 				default:
+					System.out.println("Entrada inválida");
 					break;
 				}
-
+			
 			} catch (Exception e) {
-				System.out.println("Ocorreu um erro no processamento: " + e);
+				System.out.println("Ocorreu um erro geral no programa");
 			}
 		} while (op != 0);
 		entrada.close();

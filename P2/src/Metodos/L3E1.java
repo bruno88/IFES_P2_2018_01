@@ -9,7 +9,7 @@ public class L3E1 {
 	public static final int minRand = 1, maxRand = 60;
 	
 	public static void main(String[] args) {
-		final int ordem = 10;
+		final int ordem = 3;
 		int[][] matriz = new int[ordem][ordem];
 
 		// lê o tamanho do vetor de maiores
@@ -27,7 +27,7 @@ public class L3E1 {
 					matriz, minRand, maxRand);
 
 			// Imprime matriz
-			Util.imprimeMatrizInt(matriz);
+			Util.imprimeMatriz(matriz);
 
 			// Obtém maiores
 			maiores = Util.getNMaiores(matriz, N);

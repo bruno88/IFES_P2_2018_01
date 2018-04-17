@@ -1,7 +1,5 @@
 package Util;
 
-import java.util.Scanner;
-
 import Metodos.Extra3;
 import Metodos.L2E7;
 import Metodos.L3E1;
@@ -9,7 +7,7 @@ import Metodos.L3E5;
 import Metodos.L3E6;
 import Metodos.L3E7;
 
-public class Util {
+public class UtilErrado {
 	public static int soma(int numA, int numB) {
 		int result = numA + numB;
 		return result;
@@ -67,7 +65,7 @@ public class Util {
 	public static void getVetorIntAleatorio(int[] vetor, int min, int max) {
 		// Popula o vetor com aleatórios de min a max
 		for (int i = 0; i < vetor.length; i++) {
-			vetor[i] = Util.geraIntAleatorio(min, max);
+			vetor[i] = UtilErrado.geraIntAleatorio(min, max);
 		}
 
 	}
@@ -104,8 +102,8 @@ public class Util {
 		int[] repetidos = new int[vetor.length];
 
 		for (int i = 0; i < vetor.length; i++) {
-			isRepetido = Util.isRepetidoInt(vetor, vetor[i]);
-			isOnArray = Util.isOnArray(repetidos, vetor[i]);
+			isRepetido = UtilErrado.isRepetidoInt(vetor, vetor[i]);
+			isOnArray = UtilErrado.isOnArray(repetidos, vetor[i]);
 			// Se o número tem repetições E
 			// se não está no vetor de repetidos
 			if (isRepetido && !isOnArray) {
@@ -154,7 +152,7 @@ public class Util {
 				cont++;
 			}
 		}
-
+		
 		if (cont > 1) {
 			return true;
 		} else {
@@ -204,7 +202,7 @@ public class Util {
 
 	public static void imprimeLocacoesPromocao(int[] vetor) {
 		for (int i = 0; i < vetor.length; i++) {
-			Util.imprimeLocacoesPromocao(vetor, i);
+			UtilErrado.imprimeLocacoesPromocao(vetor, i);
 		}
 	}
 
@@ -220,32 +218,18 @@ public class Util {
 
 		// Popula o vetor com aleatórios de min a max
 		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[0].length; j++) {
-				matriz[i][j] = Util.geraIntAleatorio(min, max);
+			for (int j = 0; j < matriz.length; j++) {
+				matriz[i][j] = UtilErrado.geraIntAleatorio(min, max);
 			}
 
 		}
 	}
 
-	public static void imprimeMatriz(int[][] matriz) {
+	public static void imprimeMatrizInt(int[][] matriz) {
 		String result = "";
 
 		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[0].length; j++) {
-				result += matriz[i][j] + "\t";
-			}
-			result += "\n";
-
-		}
-		System.out.println(result);
-
-	}
-	
-	public static void imprimeMatriz(String[][] matriz) {
-		String result = "";
-
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[0].length; j++) {
+			for (int j = 0; j < matriz.length; j++) {
 				result += matriz[i][j] + "\t";
 			}
 			result += "\n";
@@ -296,27 +280,8 @@ public class Util {
 		return menor;
 	}
 
-	public static int getMenorElemento(int num1, int num2, int num3, int num4, int maxRand) {
-		int menor = maxRand;
-
-		if (num1 < menor) {
-			menor = num1;
-		}
-		if (num2 < menor) {
-			menor = num2;
-		}
-		if (num3 < menor) {
-			menor = num3;
-		}
-		if (num4 < menor) {
-			menor = num4;
-		}
-
-		return menor;
-	}
-
 	public static int getMinmax(int[][] matriz, int minRand, int maxRand) {
-		int linha = Util.getLinhaDoMaiorElemento(matriz, minRand);
+		int linha = UtilErrado.getLinhaDoMaiorElemento(matriz, minRand);
 		int menor = maxRand;
 		for (int j = 0; j < matriz.length; j++) {
 			if (matriz[linha][j] < menor) {
@@ -325,6 +290,7 @@ public class Util {
 		}
 
 		return menor;
+
 	}
 
 	public static double getMediaPond(int[] numeros, int[] pesos) {
@@ -374,7 +340,7 @@ public class Util {
 		int[] indicesPrimos = new int[vetor.length];
 
 		for (int i = 0; i < vetor.length; i++) {
-			if (Util.isPrimo(vetor[i]) && !Util.isOnArray(indicesPrimos, vetor[i])) {
+			if (UtilErrado.isPrimo(vetor[i]) && !UtilErrado.isOnArray(indicesPrimos, vetor[i])) {
 				indicesPrimos[Extra3.qtd] = vetor[i];
 				Extra3.qtd++;
 			}
@@ -386,7 +352,7 @@ public class Util {
 		int[] indicesPrimos = new int[vetor.length];
 
 		for (int i = 0; i < vetor.length; i++) {
-			if (Util.isPrimo(vetor[i])) {
+			if (UtilErrado.isPrimo(vetor[i])) {
 				indicesPrimos[Extra3.qtd] = i;
 				Extra3.qtd++;
 			}
@@ -399,10 +365,10 @@ public class Util {
 		int[] maiores = new int[N];
 		int maior = 0;
 		while (L3E1.qtd < N) {
-			maior = Util.getMenorElemento(matriz, L3E1.minRand);
+			maior = UtilErrado.getMenorElemento(matriz, L3E1.minRand);
 			for (int i = 0; i < matriz.length; i++) {
 				for (int j = 0; j < matriz.length; j++) {
-					if (matriz[i][j] > maior && !isOnArray(maiores, matriz[i][j])) {
+					if (matriz[i][j] > maior && isOnArray(maiores, matriz[i][j])) {
 						maior = matriz[i][j];
 					}
 				}
@@ -426,14 +392,15 @@ public class Util {
 	public static int getNumPrimos(int[] vet1) {
 		int cont = 0;
 		for (int i = 0; i < vet1.length; i++) {
-			if (Util.isPrimo(vet1[i])) {
+			if (UtilErrado.isPrimo(vet1[i])) {
 				cont++;
 			}
 		}
 		return cont;
 	}
 
-	public static void salvaHistorico(String operacao, double valor) {
+	public static void salvaHistorico(String operacao, 
+			double valor) {
 		L3E5.nomeOperHist[L3E5.qtdTransacoes] = operacao;
 		L3E5.valorOperHist[L3E5.qtdTransacoes] = valor;
 		L3E5.qtdTransacoes++;
@@ -444,7 +411,10 @@ public class Util {
 		System.out.println("Listando transações:\n");
 		for (int i = 0; i < L3E5.qtdTransacoes; i++) {
 			System.out.println(
-					"Operação " + (i + 1) + ": " + L3E5.nomeOperHist[i] + " no valor de: " + L3E5.valorOperHist[i]);
+					"Operação " + (i + 1) + ": " 
+							+ L3E5.nomeOperHist[i] 
+							+ " no valor de: " 
+							+ L3E5.valorOperHist[i]);
 		}
 		System.out.println();
 
@@ -473,9 +443,12 @@ public class Util {
 
 	public static boolean isTuplaValida(String[][] tabuleiro, int novaLinha, int novaColuna) {
 		if (// está no intervalo (entre 0 e 2)
-		novaLinha >= 0 && novaLinha < tabuleiro.length && novaColuna >= 0 && novaColuna < tabuleiro.length
+		novaLinha >= 0 
+		&& novaLinha < tabuleiro.length 
+		&& novaColuna >= 0 
+		&& novaColuna < tabuleiro.length
 		// E se está livre
-				&& tabuleiro[novaLinha][novaColuna] == "_") {
+		&& tabuleiro[novaLinha][novaColuna] == "_") {
 			return true;
 		} else {
 			return false;
@@ -497,14 +470,16 @@ public class Util {
 	public static boolean verificaVitoria(String[][] tabuleiro) {
 		for (int i = 0; i < tabuleiro.length; i++) {
 			// Checando as Linhas
-			if (tabuleiro[i][0].equals(tabuleiro[i][1]) && tabuleiro[i][0].equals(tabuleiro[i][2])
+			if (tabuleiro[i][0].equals(tabuleiro[i][1]) 
+					&& tabuleiro[i][0].equals(tabuleiro[i][2])
 					&& !tabuleiro[i][0].equals("_")) {
 				inverteJogador();
 				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
 				return false;
 			}
 			// Checando as Colunas
-			if (tabuleiro[0][i].equals(tabuleiro[1][i]) && tabuleiro[0][i].equals(tabuleiro[2][i])
+			if (tabuleiro[0][i].equals(tabuleiro[1][i]) 
+					&& tabuleiro[0][i].equals(tabuleiro[2][i])
 					&& !tabuleiro[0][i].equals("_")) {
 				inverteJogador();
 				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
@@ -512,7 +487,8 @@ public class Util {
 			}
 
 			// Verificando a Diagonal Principal
-			if (tabuleiro[0][0].equals(tabuleiro[1][1]) && tabuleiro[0][0].equals(tabuleiro[2][2])
+			if (tabuleiro[0][0].equals(tabuleiro[1][1]) 
+					&& tabuleiro[0][0].equals(tabuleiro[2][2])
 					&& !tabuleiro[0][0].equals("_")) {
 				inverteJogador();
 				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
@@ -520,19 +496,20 @@ public class Util {
 			}
 
 			// Verificando a Diagonal Invertida
-			if (tabuleiro[0][2].equals(tabuleiro[1][1]) && tabuleiro[0][2].equals(tabuleiro[2][0])
+			if (tabuleiro[0][2].equals(tabuleiro[1][1]) 
+					&& tabuleiro[0][2].equals(tabuleiro[2][0])
 					&& !tabuleiro[0][2].equals("_")) {
 				inverteJogador();
 				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
 				return false;
-			}
+			}	
 		}
-
-		if (Util.verificaEmpate(tabuleiro)) {
+		
+		if (UtilErrado.verificaEmpate(tabuleiro)) {
 			L3E6.result = "Fim de jogo. Não há jogadas disponíveis";
 			return false;
 		}
-
+		
 		return true;
 
 	}
@@ -540,7 +517,7 @@ public class Util {
 	public static boolean verificaEmpate(String[][] tabuleiro) {
 		for (int i = 0; i < tabuleiro.length; i++) {
 			for (int j = 0; j < tabuleiro.length; j++) {
-				if (tabuleiro[i][j].equals("_")) {
+				if(tabuleiro[i][j].equals("_")){
 					return false;
 				}
 			}
@@ -595,229 +572,5 @@ public class Util {
 			}
 		}
 		return novoVetor;
-	}
-
-	public static void substituiValor(int[] vetor, int pos, int num) {
-		vetor[pos] = num;
-	}
-
-	public static void leVetorInt(int[] vetor, Scanner entrada) {
-		for (int i = 0; i < vetor.length; i++) {
-			System.out.println("Digite o próximo valor: ");
-			vetor[i] = Integer.valueOf(entrada.nextLine());
-		}
-	}
-
-	public static void alteraMatriz(int[][] matriz, int[] vetor) {
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz.length; j++) {
-				if (Util.maiorQue(i, vetor[0])) {
-					matriz[i][j] += 1;
-				}
-				if (Util.menorQue(j, vetor[1])) {
-					matriz[i][j] += 2;
-				}
-			}
-		}
-
-	}
-
-	public static boolean menorQue(int i, int j) {
-		if (i < j) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public static boolean maiorQue(int i, int j) {
-		if (i > j) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public static void alteraVizinhos(int[] vetor, int pos, int media) {
-		// Se posição 0, só altera o posterior
-		if (pos == 0) {
-			vetor[pos + 1] /= media;
-		} else
-		// Se posição 19 (20 - 1), só altera o anterior
-		if (pos == (vetor.length - 1)) {
-			vetor[pos - 1] /= media;
-			// Senão, altera ambos
-		} else {
-			vetor[pos + 1] /= media;
-			vetor[pos - 1] /= media;
-
-		}
-	}
-
-	public static int[][] getMenorMatriz(int[][] mat1, int[][] mat2, int[][] mat3, int[][] mat4, int posL, int posC,
-			int maxRand) {
-		// Cria a menor Matriz
-		int[][] menorMatriz = new int[mat1.length][mat1.length];
-
-		// Obtém os menores termos de cada matriz
-		for (int i = 0; i < menorMatriz.length; i++) {
-			for (int j = 0; j < menorMatriz.length; j++) {
-				// para cada posição (i,j), obtém o menor
-				menorMatriz[i][j] = 
-						Util.getMenorElemento(
-								mat1[i][j], 
-								mat2[i][j], 
-								mat3[i][j], 
-								mat4[i][j], 
-								maxRand);
-			}
-		}
-
-		// Ao final, zera a posição (posL,posC)
-		menorMatriz[posL][posC] = 0;
-
-		return menorMatriz;
-
-	}
-
-	public static int[] incluirValor(int[] vetor, int pos, int num) {
-		int[] novoVetor = new int[vetor.length + 1];
-		int qtdInserido = 0;
-
-		// transfere os dados do vetor velho para o novo
-		for (int i = 0; i < vetor.length; i++) {
-			if (i != pos) {
-				novoVetor[qtdInserido] = vetor[i];
-				qtdInserido++;
-			} else {
-				novoVetor[qtdInserido] = num;
-				qtdInserido++;
-				i--;
-				pos = -1;
-			}
-		}
-		return novoVetor;
-
-	}
-
-	public static int[] somaVetores(int[] vet1, int[] vet2) {
-		int[] vetSoma = new int[vet1.length];
-		
-		// Para cada posição, soma os elementos de vet1 e vet2
-		for (int i = 0; i < vetSoma.length; i++) {
-			vetSoma[i] = vet1[i] + vet2[i];
-		}
-		return vetSoma;
-	}
-
-	public static double getMediaAritMatriz(int[][] matriz) {
-		int soma = 0;
-		double media = 0;
-		
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[0].length; j++) {
-				soma += matriz[i][j];
-			}
-		}
-		media = (double) soma/(matriz.length * matriz[0].length); 
-		return media;
-	}
-
-	public static void alugarAptoParaCondomino(String[][] condominio, String nome, int andar, int apto, String texto) {
-		if (condominio[andar][apto].equalsIgnoreCase(texto)) {
-			condominio[andar][apto] = nome;
-			System.out.println("Aluguel realizado com sucesso !");
-		} else {
-			System.out.println("O apartamento andar " + andar 
-									+ ", apto " + apto 
-									+ " já está ocupado pelo condômino "
-									+ condominio[andar][apto]);
-		}
-		
-	}
-
-	public static void preencheMatrizComTexto(String[][] condominio, String texto) {
-		for (int i = 0; i < condominio.length; i++) {
-			for (int j = 0; j < condominio.length; j++) {
-				condominio[i][j] = texto;
-			}
-		}
-	}
-
-	
-
-	public static void transfereCondomino(String[][] condominio, String nome, int novoAndar, int novoApto, String texto) {
-			// Verifica se o novo apto está vago
-			if (Util.isAptoVago(condominio, novoAndar, novoApto, texto)) {
-				int[] aptoAtual = Util.getIJMatrizPorNome(condominio, nome);
-				// atualiza novo apto
-				condominio[novoAndar][novoApto] = nome;
-				// atualiza apto antigo
-				condominio[aptoAtual[0]][aptoAtual[1]] = texto;
-				
-				System.out.println("Transferencia realizada com sucesso !");
-			} else {
-				System.out.println("O andar/apto digitado não está livre");
-			}
-		
-		
-	}
-
-	public static int[] getIJMatrizPorNome(String[][] condominio, String nome) {
-		int[] IJ= new int[2];
-		for (int i = 0; i < condominio.length; i++) {
-			for (int j = 0; j < condominio[0].length; j++) {
-				if (condominio[i][j].equalsIgnoreCase(nome)) {
-					IJ[0] = i;
-					IJ[1] = j;
-					return IJ;
-				}
-			}
-		}
-		return null;
-	}
-
-	public static boolean isAptoVago(String[][] condominio, int novoAndar, int novoApto, String texto) {
-		if (condominio[novoAndar][novoApto].equalsIgnoreCase(texto)) {
-			return true;
-		}
-		return false;
-	}
-
-	public static boolean isOnMatrix(String[][] condominio, String texto) {
-		for (int i = 0; i < condominio.length; i++) {
-			for (int j = 0; j < condominio[0].length; j++) {
-				if (condominio[i][j].equalsIgnoreCase(texto)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	public static void removeDoCondominioPorNome(String[][] condominio, String nome, String texto) {
-		// Verifica se o condômino está no condomínio
-		if (Util.isOnMatrix(condominio, nome)) {
-			int[] aptoAtual = Util.getIJMatrizPorNome(condominio, nome);
-			condominio[aptoAtual[0]][aptoAtual[1]] = texto;
-			System.out.println("Desapropriação realizada com sucesso !");
-		} else {
-			System.out
-					.println("O nome digitado não está no condomínio, "
-							+ "portanto não pode ser transferido.");
-		}
-		
-	}
-
-	public static void removeDoCondominioPorPosicao(String[][] condominio, int novoAndar, int novoApto, String texto) {
-		// Verifica se o novo apto está vago
-		if (!Util.isAptoVago(condominio, novoAndar, novoApto, texto)) {
-			condominio[novoAndar][novoApto] = texto;
-
-			System.out.println("Desapropriação realizada com sucesso !");
-		} else {
-			System.out.println("O andar/apto digitado está livre");
-		}
-		
 	}
 }
