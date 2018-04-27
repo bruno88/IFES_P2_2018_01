@@ -8,6 +8,8 @@ import Metodos.L3E1;
 import Metodos.L3E5;
 import Metodos.L3E6;
 import Metodos.L3E7;
+import POO.Pessoa;
+import RecuperacaoParalela1aProva.CorrecaoProvaQ1;
 
 public class Util {
 	public static int soma(int numA, int numB) {
@@ -47,12 +49,23 @@ public class Util {
 		System.out.println(result);
 
 	}
+	
+	public static void imprimeVetor(Pessoa[] vetor) throws ArrayIndexOutOfBoundsException {
+		String result = "";
+
+		for (int i = 0; i < vetor.length; i++) {
+			if (vetor[i] != null) {
+				result += vetor[i] + " \n";
+			}
+		}
+		System.out.println(result);
+	}
 
 	public static void imprimeVetorInt(int[] vetor, int qtd) {
 		String result = "";
 
 		for (int i = 0; i <= (qtd - 1); i++) {
-			result += vetor[i] + " ";
+			result += "pessoas[" + i + " = " + vetor[i] + " ";
 		}
 		System.out.println(result);
 	}
@@ -818,6 +831,78 @@ public class Util {
 		} else {
 			System.out.println("O andar/apto digitado está livre");
 		}
+	}
+
+	public static int[] pushPilha(int[] pilha, int numero) {
+		// Se você for capaz de empilhar
+		if (CorrecaoProvaQ1.qtdTermos < pilha.length) {
+			pilha[CorrecaoProvaQ1.qtdTermos] = numero;
+			CorrecaoProvaQ1.qtdTermos++;
+			return pilha;
+		} else {
+			// cria uma pilha nova, sem nada
+			int[] novaPilha = new int[pilha.length + 1];
+
+			// Transfere os dados da pilha nova para a antiga
+			for (int i = 0; i < pilha.length; i++) {
+				novaPilha[i] = pilha[i];
+			}
+
+			// Adiciona o ultimo termo
+			novaPilha[CorrecaoProvaQ1.qtdTermos] = numero;
+			CorrecaoProvaQ1.qtdTermos++;
+			return novaPilha;
+		}
+	}
+
+	public static void imprimeUltimoTermo(int[] pilha) {
+		int termoDesempilhado = pilha[pilha.length-1];
+		System.out.println("Termo desempilhado: " 
+					+ termoDesempilhado);
 		
+	}
+
+	public static int[] getPilhaSemUltimo(int[] pilha) {
+		// cria uma pilha nova, sem nada, com 1 posição a menos
+		int[] novaPilha = new int[pilha.length - 1];
+
+		// Transfere os dados da pilha nova para a antiga
+		for (int i = 0; i < novaPilha.length; i++) {
+			novaPilha[i] = pilha[i];
+		}
+
+		// reduz o contador, porque tem 1 termo a menos
+		CorrecaoProvaQ1.qtdTermos--;
+		
+		// Retorna a nova Pilha, sem o termo desempilhado
+		return novaPilha;
+	}
+
+	public static int[][] getMatrizAlternada(int[][] mat1, int[][] mat2) {
+		int[][] matAlternada = new int[mat1.length][mat1[0].length];
+		boolean alterna = false;
+
+		for (int i = 0; i < matAlternada.length; i++) {
+			for (int j = 0; j < matAlternada.length; j++) {
+				if (alterna) {
+					matAlternada[i][j] = mat2[i][j];
+					alterna = Util.getBooleanInvertido(alterna);
+				} else {
+					matAlternada[i][j] = mat1[i][j];
+					alterna = Util.getBooleanInvertido(alterna);
+				}
+			}
+			alterna = false;
+		}
+		return matAlternada;
+	}
+
+	public static boolean getBooleanInvertido(boolean b) {
+		if (b == true) {
+			return false;
+		} else {
+			return true;
+		}
+
 	}
 }
