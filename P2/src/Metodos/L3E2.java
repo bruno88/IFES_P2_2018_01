@@ -5,10 +5,10 @@ import java.util.Scanner;
 import Util.Util;
 
 public class L3E2 {
-	public static int qtd = 0;
-	public static final int minRand = 1;
+	
 	public static void main(String[] args) {
-		final int ordem = 10, maxRand = 60;
+		final int ordem = 10, minRand = 1, maxRand = 60;
+		int qtd = 0;
 		int[][] matriz = new int[ordem][ordem];
 
 		// lê o tamanho do vetor de maiores
@@ -27,7 +27,7 @@ public class L3E2 {
 			Util.imprimeMatriz(matriz);
 
 			// Obtém maiores
-			maiores = Util.getNMaiores(matriz, N);
+			maiores = Util.getNMaiores(matriz, N, qtd, minRand);
 			
 			// Imprime maiores
 			Util.imprimeVetorInt(maiores);

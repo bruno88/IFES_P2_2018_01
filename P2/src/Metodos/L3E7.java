@@ -5,9 +5,9 @@ import java.util.Scanner;
 import Util.Util;
 
 public class L3E7 {
-	public static int qtdNum = 0;
 	public static void main(String[] args) {
 		final int tamVetor = 1;
+		int qtdNum = 0;
 		int[] vetor = new int[tamVetor];
 		int op, numero;
 		Scanner entrada = new Scanner(System.in);
@@ -24,7 +24,8 @@ public class L3E7 {
 				case 1:
 					System.out.println("Digite o número a ser adicionado");
 					numero = Integer.valueOf(entrada.nextLine());
-					vetor = Util.adicionarNoVetor(vetor, numero);
+					vetor = Util.adicionarNoVetor(vetor, numero, qtdNum);
+					qtdNum++;
 					System.out.print("Vetor atual: ");
 					Util.imprimeVetorInt(vetor, qtdNum);
 					break;
@@ -32,6 +33,7 @@ public class L3E7 {
 					System.out.println("Digite o número a ser removido");
 					numero = Integer.valueOf(entrada.nextLine());
 					vetor = Util.removeDoVetor(vetor, numero);
+					qtdNum--;
 					System.out.print("Vetor atual: ");
 					Util.imprimeVetorInt(vetor, qtdNum);
 					break;

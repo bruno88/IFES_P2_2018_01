@@ -10,6 +10,7 @@ public class CorrecaoProvaQ1 {
 	public static void main(String[] args) {
 		final int tam = 1;
 		int[] pilha = new int[tam];
+		int[] qtdTermos = new int[tam];
 		int op, numero;
 		Scanner entrada = new Scanner(System.in);
 		boolean continuar = true;
@@ -26,7 +27,7 @@ public class CorrecaoProvaQ1 {
 					System.out.println("Digite o número a ser empilhado");
 					numero = Integer.valueOf(entrada.nextLine());
 					
-					pilha = Util.pushPilha(pilha, numero);
+					pilha = Util.pushPilha(pilha, numero, qtdTermos);
 					
 					break;
 				case 2:
@@ -34,11 +35,12 @@ public class CorrecaoProvaQ1 {
 					Util.imprimeUltimoTermo(pilha);
 
 					// Obtém a pilha sem o termo desempilhado
-					pilha = Util.getPilhaSemUltimo(pilha);
+					pilha = Util.getPilhaSemUltimo(pilha, qtdTermos);
 					
 					break;
 				case 0:
 					System.out.println("Programa encerrado por comando do usuário");
+					continuar = false;
 					break;
 				default:
 					System.out.println("Entrada inválida !");

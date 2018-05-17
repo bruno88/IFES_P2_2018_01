@@ -9,8 +9,7 @@ public class Ex1 {
 		double valorDigitado;
 		Scanner entrada = new Scanner(System.in);
 		boolean continua_menu = true;
-		Conta c1 = new Conta("Bruno");
-		
+		OldConta c1 = new OldConta("Bruno");
 		
 		do {
 			try {
@@ -39,7 +38,8 @@ public class Ex1 {
 					c1.depositar(valorDigitado);
 					break;
 				case 3: 
-					System.out.println(c1.toString() + "\n");
+					System.out.println(c1.toString() 
+							+ "\n");
 					break;
 				case 0:
 					System.out.println("Programa encerrado por comando do usuário");

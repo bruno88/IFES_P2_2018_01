@@ -5,10 +5,9 @@ import java.util.Scanner;
 import Util.Util;
 
 public class L2E7 {
-	public static int qtd = 0;
-	
 	public static void main(String[] args) {
 		final int tamVetor = 100, tamSubConj = 3;
+		int qtd = 0;
 		//int[] conjunto = new int[tamVetor];
 		// Para Testes: 
 		int[] conjunto = { 8, 6, 5, 4, 7,
@@ -36,10 +35,10 @@ public class L2E7 {
 		// Verifica se o subconjunto está contido no conjunto		
 		vetorDePosicoes = 
 				Util.getAllIndexOfSubconjuntoNoConjunto(
-						conjunto, subconjunto);
+						conjunto, subconjunto, qtd);
 		
-		if (L2E7.qtd > 0) {
-			Util.imprimeVetorInt(vetorDePosicoes, qtd);	
+		if (vetorDePosicoes[0] > 0) {
+			Util.imprimeVetorInt(vetorDePosicoes);	
 		} else {
 			System.out.println("O subconjunto não "
 					+ "foi encontrado no conjunto "

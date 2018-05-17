@@ -5,11 +5,10 @@ import java.util.Scanner;
 import Util.Util;
 
 public class L3E5 {
-	public static String[] nomeOperHist = new String [100];
-	public static double[] valorOperHist = new double [100];
-	public static int qtdTransacoes = 0;
-	
 	public static void main(String[] args) {
+		String[] nomeOperHist = new String [100];
+		double[] valorOperHist = new double [100];
+		int qtdTransacoes = 0;
 		int op = 0;
 		double valor, saldo = 0;
 		
@@ -35,7 +34,10 @@ public class L3E5 {
 					saldo -= valor;
 					
 					// Histórico
-					Util.salvaHistorico("Saque", valor);
+					Util.salvaHistorico("Saque", valor, 
+								nomeOperHist, valorOperHist,
+								qtdTransacoes);
+					qtdTransacoes++;
 					
 					System.out.println("Saque realizado com sucesso");
 					break;
@@ -47,12 +49,16 @@ public class L3E5 {
 					saldo += valor;
 					
 					// Histórico
-					Util.salvaHistorico("Depósito", valor);
+					Util.salvaHistorico("Depósito", valor, 
+							nomeOperHist, valorOperHist,
+							qtdTransacoes);
+					qtdTransacoes++;
 					
 					System.out.println("Depósito realizado com sucesso");
 					break;
 				case 3:
-					Util.imprimeHistorico();
+					Util.imprimeHistorico(nomeOperHist, valorOperHist,
+							qtdTransacoes);
 					System.out.println("Saldo Atual: " + saldo);
 					break;
 

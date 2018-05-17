@@ -2,14 +2,7 @@ package Util;
 
 import java.util.Scanner;
 
-import Metodos.Extra3;
-import Metodos.L2E7;
-import Metodos.L3E1;
-import Metodos.L3E5;
-import Metodos.L3E6;
-import Metodos.L3E7;
 import POO.Pessoa;
-import RecuperacaoParalela1aProva.CorrecaoProvaQ1;
 
 public class Util {
 	public static int soma(int numA, int numB) {
@@ -65,7 +58,7 @@ public class Util {
 		String result = "";
 
 		for (int i = 0; i <= (qtd - 1); i++) {
-			result += "pessoas[" + i + " = " + vetor[i] + " ";
+			result +=  vetor[i] + " ";
 		}
 		System.out.println(result);
 	}
@@ -97,7 +90,8 @@ public class Util {
 		return horas * 60;
 	}
 
-	public static int[] doSelectionSort(int[] vetor) throws ArrayIndexOutOfBoundsException {
+	public static int[] doSelectionSort(int[] vetor) 
+			throws ArrayIndexOutOfBoundsException {
 		for (int i = 0; i < vetor.length - 1; i++) {
 			int index = i;
 			for (int j = i + 1; j < vetor.length; j++) {
@@ -194,7 +188,8 @@ public class Util {
 		return -1;
 	}
 
-	public static int[] getAllIndexOfSubconjuntoNoConjunto(int[] conjunto, int[] subconjunto) {
+	public static int[] getAllIndexOfSubconjuntoNoConjunto(int[] conjunto,
+			int[] subconjunto, int qtd) {
 		int cont;
 		int[] posicoes = new int[conjunto.length];
 
@@ -206,8 +201,8 @@ public class Util {
 				}
 			}
 			if (cont == subconjunto.length) {
-				posicoes[L2E7.qtd] = i;
-				L2E7.qtd++;
+				posicoes[qtd] = i;
+				qtd++;
 			}
 
 		}
@@ -382,37 +377,38 @@ public class Util {
 			return false;
 		}
 	}
-
-	public static int[] getNumerosPrimo(int[] vetor) {
+	
+	public static int[] getNumerosPrimo(int[] vetor, int[] qtdPrimos) {
 		int[] indicesPrimos = new int[vetor.length];
-
+		
 		for (int i = 0; i < vetor.length; i++) {
-			if (Util.isPrimo(vetor[i]) && !Util.isOnArray(indicesPrimos, vetor[i])) {
-				indicesPrimos[Extra3.qtd] = vetor[i];
-				Extra3.qtd++;
+			if (Util.isPrimo(vetor[i]) 
+					&& !Util.isOnArray(indicesPrimos, vetor[i])) {
+				indicesPrimos[qtdPrimos[0]] = vetor[i];
+				qtdPrimos[0]++;
 			}
 		}
 		return indicesPrimos;
 	}
 
-	public static int[] getIndexOfAllNumerosPrimo(int[] vetor) {
+	public static int[] getIndexOfAllNumerosPrimo(int[] vetor, int[] qtdPrimos) {
 		int[] indicesPrimos = new int[vetor.length];
 
 		for (int i = 0; i < vetor.length; i++) {
 			if (Util.isPrimo(vetor[i])) {
-				indicesPrimos[Extra3.qtd] = i;
-				Extra3.qtd++;
+				indicesPrimos[qtdPrimos[0]] = i;
+				qtdPrimos[0]++;
 			}
 		}
 
 		return indicesPrimos;
 	}
 
-	public static int[] getNMaiores(int[][] matriz, int N) {
+	public static int[] getNMaiores(int[][] matriz, int N, int qtd, int minRand) {
 		int[] maiores = new int[N];
 		int maior = 0;
-		while (L3E1.qtd < N) {
-			maior = Util.getMenorElemento(matriz, L3E1.minRand);
+		while (qtd < N) {
+			maior = Util.getMenorElemento(matriz, minRand);
 			for (int i = 0; i < matriz.length; i++) {
 				for (int j = 0; j < matriz.length; j++) {
 					if (matriz[i][j] > maior && !isOnArray(maiores, matriz[i][j])) {
@@ -420,8 +416,8 @@ public class Util {
 					}
 				}
 			}
-			maiores[L3E1.qtd] = maior;
-			L3E1.qtd++;
+			maiores[qtd] = maior;
+			qtd++;
 		}
 
 		return maiores;
@@ -446,18 +442,24 @@ public class Util {
 		return cont;
 	}
 
-	public static void salvaHistorico(String operacao, double valor) {
-		L3E5.nomeOperHist[L3E5.qtdTransacoes] = operacao;
-		L3E5.valorOperHist[L3E5.qtdTransacoes] = valor;
-		L3E5.qtdTransacoes++;
+	public static void salvaHistorico(String operacao, double valor,
+			String[] nomeOperHist, double[] valorOperHist,
+			int qtdTransacoes) {
+		nomeOperHist[qtdTransacoes] = operacao;
+		valorOperHist[qtdTransacoes] = valor;
+		
 
 	}
 
-	public static void imprimeHistorico() {
+	public static void imprimeHistorico(String[] nomeOperHist, 
+			double[] valorOperHist,
+			int qtdTransacoes) {
 		System.out.println("Listando transações:\n");
-		for (int i = 0; i < L3E5.qtdTransacoes; i++) {
+		for (int i = 0; i < qtdTransacoes; i++) {
 			System.out.println(
-					"Operação " + (i + 1) + ": " + L3E5.nomeOperHist[i] + " no valor de: " + L3E5.valorOperHist[i]);
+					"Operação " + (i + 1) + ": " + 
+							nomeOperHist[i] + " no valor de: " + 
+							valorOperHist[i]);
 		}
 		System.out.println();
 
@@ -484,9 +486,11 @@ public class Util {
 
 	}
 
-	public static boolean isTuplaValida(String[][] tabuleiro, int novaLinha, int novaColuna) {
+	public static boolean isTuplaValida(String[][] tabuleiro, 
+			int novaLinha, int novaColuna) {
 		if (// está no intervalo (entre 0 e 2)
-		novaLinha >= 0 && novaLinha < tabuleiro.length && novaColuna >= 0 && novaColuna < tabuleiro.length
+		novaLinha >= 0 && novaLinha < tabuleiro.length 
+		&& novaColuna >= 0 && novaColuna < tabuleiro.length
 		// E se está livre
 				&& tabuleiro[novaLinha][novaColuna] == "_") {
 			return true;
@@ -495,54 +499,51 @@ public class Util {
 		}
 	}
 
-	public static void realizaJogada(String[][] tabuleiro, int novaLinha, int novaColuna, int jogadorAtual) {
+	public static void realizaJogada(String[][] tabuleiro, 
+			int novaLinha, int novaColuna, int jogadorAtual) {
 
 		if (jogadorAtual == 1) {
 			tabuleiro[novaLinha][novaColuna] = "O";
-			L3E6.jogadorAtual = 2;
 		} else {
 			tabuleiro[novaLinha][novaColuna] = "X";
-			L3E6.jogadorAtual = 1;
 		}
 
 	}
 
-	public static boolean verificaVitoria(String[][] tabuleiro) {
+	public static boolean verificaVitoria(String[][] tabuleiro, int jogadorAtual) {
+		jogadorAtual = Util.getOutroJogador(jogadorAtual);
+		
 		for (int i = 0; i < tabuleiro.length; i++) {
 			// Checando as Linhas
 			if (tabuleiro[i][0].equals(tabuleiro[i][1]) && tabuleiro[i][0].equals(tabuleiro[i][2])
 					&& !tabuleiro[i][0].equals("_")) {
-				inverteJogador();
-				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
+				System.out.println("Vitória do jogador " + jogadorAtual);
 				return false;
 			}
 			// Checando as Colunas
 			if (tabuleiro[0][i].equals(tabuleiro[1][i]) && tabuleiro[0][i].equals(tabuleiro[2][i])
 					&& !tabuleiro[0][i].equals("_")) {
-				inverteJogador();
-				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
+				System.out.println("Vitória do jogador " + jogadorAtual);
 				return false;
 			}
 
 			// Verificando a Diagonal Principal
 			if (tabuleiro[0][0].equals(tabuleiro[1][1]) && tabuleiro[0][0].equals(tabuleiro[2][2])
 					&& !tabuleiro[0][0].equals("_")) {
-				inverteJogador();
-				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
+				System.out.println("Vitória do jogador " + jogadorAtual);
 				return false;
 			}
 
 			// Verificando a Diagonal Invertida
 			if (tabuleiro[0][2].equals(tabuleiro[1][1]) && tabuleiro[0][2].equals(tabuleiro[2][0])
 					&& !tabuleiro[0][2].equals("_")) {
-				inverteJogador();
-				L3E6.result = "Vitória do jogador " + L3E6.jogadorAtual;
+				System.out.println("Vitória do jogador " + jogadorAtual);
 				return false;
 			}
 		}
 
 		if (Util.verificaEmpate(tabuleiro)) {
-			L3E6.result = "Fim de jogo. Não há jogadas disponíveis";
+			System.out.println("Fim de jogo. Não há jogadas disponíveis");
 			return false;
 		}
 
@@ -561,18 +562,17 @@ public class Util {
 		return true;
 	}
 
-	public static void inverteJogador() {
-		if (L3E6.jogadorAtual == 1) {
-			L3E6.jogadorAtual = 2;
+	public static int getOutroJogador(int jogadorAtual) {
+		if (jogadorAtual == 1) {
+			return 2;
 		} else {
-			L3E6.jogadorAtual = 1;
+			return 1;
 		}
 	}
 
-	public static int[] adicionarNoVetor(int[] vetor, int numero) {
-		if (L3E7.qtdNum < vetor.length) {
-			vetor[L3E7.qtdNum] = numero;
-			L3E7.qtdNum++;
+	public static int[] adicionarNoVetor(int[] vetor, int numero, int qtdNum) {
+		if (qtdNum < vetor.length) {
+			vetor[qtdNum] = numero;
 			return vetor;
 
 		} else {
@@ -585,8 +585,7 @@ public class Util {
 			}
 
 			// adiciona o novo número
-			novoVetor[L3E7.qtdNum] = numero;
-			L3E7.qtdNum++;
+			novoVetor[qtdNum] = numero;
 
 			// retorna o novo vetor
 			return novoVetor;
@@ -601,7 +600,6 @@ public class Util {
 		for (int i = 0; i < vetor.length; i++) {
 			if (vetor[i] == numero && removidos < 1) {
 				removidos++;
-				L3E7.qtdNum--;
 			} else {
 				novoVetor[novoCont] = vetor[i];
 				novoCont++;
@@ -822,7 +820,8 @@ public class Util {
 		
 	}
 
-	public static void removeDoCondominioPorPosicao(String[][] condominio, int novoAndar, int novoApto, String texto) {
+	public static void removeDoCondominioPorPosicao(String[][] condominio, 
+			int novoAndar, int novoApto, String texto) {
 		// Verifica se o novo apto está vago
 		if (!Util.isAptoVago(condominio, novoAndar, novoApto, texto)) {
 			condominio[novoAndar][novoApto] = texto;
@@ -833,11 +832,11 @@ public class Util {
 		}
 	}
 
-	public static int[] pushPilha(int[] pilha, int numero) {
+	public static int[] pushPilha(int[] pilha, int numero, int[] qtdTermos) {
 		// Se você for capaz de empilhar
-		if (CorrecaoProvaQ1.qtdTermos < pilha.length) {
-			pilha[CorrecaoProvaQ1.qtdTermos] = numero;
-			CorrecaoProvaQ1.qtdTermos++;
+		if (qtdTermos[0] < pilha.length) {
+			pilha[qtdTermos[0]] = numero;
+			qtdTermos[0]++;
 			return pilha;
 		} else {
 			// cria uma pilha nova, sem nada
@@ -849,8 +848,8 @@ public class Util {
 			}
 
 			// Adiciona o ultimo termo
-			novaPilha[CorrecaoProvaQ1.qtdTermos] = numero;
-			CorrecaoProvaQ1.qtdTermos++;
+			novaPilha[qtdTermos[0]] = numero;
+			qtdTermos[0]++;
 			return novaPilha;
 		}
 	}
@@ -862,7 +861,7 @@ public class Util {
 		
 	}
 
-	public static int[] getPilhaSemUltimo(int[] pilha) {
+	public static int[] getPilhaSemUltimo(int[] pilha, int[] qtdTermos) {
 		// cria uma pilha nova, sem nada, com 1 posição a menos
 		int[] novaPilha = new int[pilha.length - 1];
 
@@ -872,7 +871,7 @@ public class Util {
 		}
 
 		// reduz o contador, porque tem 1 termo a menos
-		CorrecaoProvaQ1.qtdTermos--;
+		qtdTermos[0]--;
 		
 		// Retorna a nova Pilha, sem o termo desempilhado
 		return novaPilha;

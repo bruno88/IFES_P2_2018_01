@@ -6,11 +6,11 @@ import java.util.Scanner;
 import Util.Util;
 
 public class L3E6 {
-	public static int jogadorAtual = 1;
-	public static String result = "";
+	
 
 	public static void main(String[] args) {
 		final int tam = 3;
+		int jogadorAtual = 1;
 		int novaLinha, novaColuna;
 		boolean continuar = true;
 		Scanner entrada = new Scanner(System.in);
@@ -35,15 +35,14 @@ public class L3E6 {
 						tabuleiro, novaLinha, novaColuna)) {
 					// Registra a jogada de acordo com o jogador
 					Util.realizaJogada(tabuleiro, novaLinha, novaColuna, jogadorAtual);
-					
+					jogadorAtual = Util.getOutroJogador(jogadorAtual);
 					// Verifica a condição de vitória 
 					// para saber se o jogo continua 
-					continuar = Util.verificaVitoria(tabuleiro);
+					continuar = Util.verificaVitoria(tabuleiro, jogadorAtual);
 				} else {
-					result = "Jogada Inválida";
+					System.out.println("Jogada Inválida");
 				}
 
-				System.out.println(result);
 			} while (continuar);
 
 			// Imprime tabuleiro final
