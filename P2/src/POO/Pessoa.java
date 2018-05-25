@@ -60,7 +60,8 @@ public class Pessoa {
 		}
 		return null;*/
 		for (int i = 0; i < vetor.length; i++) {
-			if (vetor[i].getNome().equalsIgnoreCase(nome)) {
+			if (vetor[i].getNome().
+					equalsIgnoreCase(nome)) {
 				return vetor[i];
 			}
 		}
@@ -78,8 +79,11 @@ public class Pessoa {
 		if (this.qtdDependentes == 0) {
 			result = "Não há dependentes";
 		} else {
-			for (int i = 0; i < this.qtdDependentes; i++) {
-				result += "Nome: " + dependentes[i].getNome() + "\n";
+			for (int i = 0; i < 
+					this.qtdDependentes; i++) {
+				result += "Nome: " 
+					+ dependentes[i].getNome() 
+					+ "\n";
 			}
 		}
 		return result;

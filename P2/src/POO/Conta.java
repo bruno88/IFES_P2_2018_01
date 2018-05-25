@@ -99,9 +99,11 @@ public class Conta {
 	public void sacar(double valor) {
 		if (this.validaSaldo(valor)) {
 			this.saldo -= valor;
-			System.out.println("Saque realizado com sucesso !");
+			System.out.println(
+					"Saque realizado com sucesso !");
 		} else {
-			System.out.println("Erro: Saldo insuficiente na conta do " + this.titular);
+			System.out.println(
+					"Erro: Saldo insuficiente na conta do " + this.titular);
 		}
 	}
 
@@ -121,7 +123,8 @@ public class Conta {
 		String result = "Dados da conta: \n\n" + "Titular: ";
 		String dadosTitular = this.titular.toString();
 		result += dadosTitular;
-		result += "\nSaldo atual: " + this.saldo + "\nLimite de Crédito: " + this.limiteCredito;
+		result += "\nSaldo atual: " + this.saldo 
+				+ "\nLimite de Crédito: " + this.limiteCredito;
 		return result;
 	}
 
