@@ -40,9 +40,10 @@ public class Estoque {
 			if (this.estoque[i] != p1) {
 				novoEstoque[qtd] = p1;
 				qtd++;
+				this.qtdProdutos--;
 			}
 		}
-		this.qtdProdutos--;
+		
 		this.estoque = novoEstoque;
 	}
 

@@ -85,7 +85,9 @@ public class Ex4 {
 							double valor = Double.valueOf(entrada.nextLine());
 							novaUnidade = new Unidade(nome, valor);
 							ControleUnidade.addUnidade(novaUnidade);
-							System.out.println("Unidade " + novaUnidade.getNome() + " criada com sucesso!");
+							System.out.println("Unidade " 
+							+ novaUnidade.getNome() 
+							+ " criada com sucesso!");
 							break;
 						case 2:
 							System.out.println("Digite o nome da Unidade");

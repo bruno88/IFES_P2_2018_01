@@ -6,8 +6,12 @@ public class Produto {
 	private double peso, altura;
 	private Unidade unidade;
 
-	public Produto(String nome, Pessoa fabricante, 
-			double peso, double altura, Unidade unidade) {
+	public Produto(
+			String nome, 
+			Pessoa fabricante, 
+			double peso, 
+			double altura, 
+			Unidade unidade) {
 		this.nome = nome;
 		this.fabricante = fabricante;
 		this.peso = peso;

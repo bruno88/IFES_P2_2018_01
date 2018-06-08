@@ -4,7 +4,9 @@ public class Unidade {
 	private String nome;
 	private double qtd;
 
-	public Unidade(String nome, double qtd) {
+	public Unidade(
+			String nome, 
+			double qtd) {
 		this.nome = nome;
 		this.qtd = qtd;
 	}
@@ -26,7 +28,9 @@ public class Unidade {
 	}
 
 	public double getValorConvetido(Unidade unidDestino) {
-		return this.qtd / unidDestino.qtd;
+		return this.qtd 
+				/ 
+				unidDestino.qtd;
 	}
 	
 	@Override

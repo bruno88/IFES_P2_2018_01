@@ -2,7 +2,8 @@ package POO;
 
 public class ControleUnidade {
 	private static final int tam = 10;
-	private static Unidade[] unidades = new Unidade[tam];
+	private static 
+	Unidade[] unidades = new Unidade[tam];
 	private static int qtd = 0;
 
 	public static Unidade[] getUnidades() {
@@ -14,7 +15,8 @@ public class ControleUnidade {
 	}
 
 	public static void addUnidade(Unidade unidade) {
-		ControleUnidade.unidades[ControleUnidade.qtd] = unidade;
+		ControleUnidade.unidades
+			[ControleUnidade.qtd] = unidade;
 		ControleUnidade.qtd++;
 
 	}
@@ -26,15 +28,19 @@ public class ControleUnidade {
 			if (unidades[i] != unidadeRemov) {
 				novoUnidades[novaQtd] = unidades[i];
 				novaQtd++;
+				ControleUnidade.qtd--;
 			}
 		}
-		ControleUnidade.qtd--;
+		
 		ControleUnidade.unidades = novoUnidades;
 	}
 
-	public static Unidade getUnidadePorNome(String nome) {
-		for (int i = 0; i < ControleUnidade.qtd; i++) {
-			if (unidades[i].getNome().equalsIgnoreCase(nome)) {
+	public static Unidade getUnidadePorNome(
+			String nome) {
+		for (int i = 0; i < 
+				ControleUnidade.qtd; i++) {
+			if (unidades[i].getNome().
+					equalsIgnoreCase(nome)) {
 				return unidades[i];
 			}
 		}
