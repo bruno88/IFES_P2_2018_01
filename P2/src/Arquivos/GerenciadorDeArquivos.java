@@ -69,7 +69,11 @@ public class GerenciadorDeArquivos {
 			if (linha != null) {
 				String[] vetor = linha.split(";");
 				
-				Pessoa novaPessoa = new Pessoa(vetor[0], vetor[1], vetor[2], Integer.parseInt(vetor[3]));
+				Pessoa novaPessoa = new Pessoa(
+						vetor[0], 
+						vetor[1], 
+						vetor[2], 
+						Integer.parseInt(vetor[3]));
 
 				// TODO: Descobrir porque isso não funcionou
 				// Controle.inserePessoa(novaPessoa);
