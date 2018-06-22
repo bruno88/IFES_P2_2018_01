@@ -1,0 +1,3 @@
+Bruno;professor;abc@gmail.com;29;
+João;aluno;def@gmail.com;25;
+Ana;aluno;qwe@gmail.com;21;
