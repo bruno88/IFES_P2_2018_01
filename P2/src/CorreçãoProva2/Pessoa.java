@@ -41,12 +41,23 @@ public class Pessoa {
 		voo.imprimirMapaDeAssentos();
 	}
 	
+	// Opção 1: Passando a própria pessoa como parâmetro
 	public void escolherAssento(Voo voo, int linha, int coluna,
 			Pessoa p1) {
-		// Jeito 1: Fazendo uso do this
 		
 		if (voo.validarAssentoLivre(linha, coluna)) {
 			voo.getAssentos()[linha][coluna] = p1;
+			System.out.println("Assento reservado com sucesso!");
+		} else {
+			System.out.println("ERRO: Assento em uso");
+		}
+		
+	}
+	
+	// Opção 2: fazendo uso do this (melhor jeito)
+	public void escolherAssento(Voo voo, int linha, int coluna) {
+		if (voo.validarAssentoLivre(linha, coluna)) {
+			voo.getAssentos()[linha][coluna] = this;
 			System.out.println("Assento reservado com sucesso!");
 		} else {
 			System.out.println("ERRO: Assento em uso");

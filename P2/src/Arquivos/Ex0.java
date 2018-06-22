@@ -11,6 +11,7 @@ public class Ex0 {
 		int contador = 0;
 		
 		
+		//String path = "src/Saidas/SaidaEx0.txt";
 		String path = "src/Saidas/SaidaEx0.txt";
 		String path2 = "src/Saidas/split.txt";
 		

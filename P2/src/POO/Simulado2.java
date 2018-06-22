@@ -8,7 +8,8 @@ public class Simulado2 {
 				new Funcionario("Bruno", 0, "professor");
 		Funcionario f2 = 
 				new Funcionario("Pedro", 0, "pintor");
-
+		System.out.println(f1.getNome());
+		System.out.println(f2.getNome());
 		System.out.println(Funcionario.qtdFunc);
 	}
 }

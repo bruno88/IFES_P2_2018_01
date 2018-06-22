@@ -1,8 +1,5 @@
 package CorreçãoProva2;
 
-import POO.ControleUnidade;
-import POO.Unidade;
-
 public class GerenciarVoo {
 	private final static int tam = 10;
 	private static int qtdVoo = 0;
