@@ -42,7 +42,7 @@ public class Util {
 		System.out.println(result);
 
 	}
-	
+
 	public static void imprimeVetor(Pessoa[] vetor) throws ArrayIndexOutOfBoundsException {
 		String result = "";
 
@@ -58,7 +58,7 @@ public class Util {
 		String result = "";
 
 		for (int i = 0; i <= (qtd - 1); i++) {
-			result +=  vetor[i] + " ";
+			result += vetor[i] + " ";
 		}
 		System.out.println(result);
 	}
@@ -90,8 +90,7 @@ public class Util {
 		return horas * 60;
 	}
 
-	public static int[] doSelectionSort(int[] vetor) 
-			throws ArrayIndexOutOfBoundsException {
+	public static int[] doSelectionSort(int[] vetor) throws ArrayIndexOutOfBoundsException {
 		for (int i = 0; i < vetor.length - 1; i++) {
 			int index = i;
 			for (int j = i + 1; j < vetor.length; j++) {
@@ -188,8 +187,7 @@ public class Util {
 		return -1;
 	}
 
-	public static int[] getAllIndexOfSubconjuntoNoConjunto(int[] conjunto,
-			int[] subconjunto, int qtd) {
+	public static int[] getAllIndexOfSubconjuntoNoConjunto(int[] conjunto, int[] subconjunto, int qtd) {
 		int cont;
 		int[] posicoes = new int[conjunto.length];
 
@@ -248,7 +246,7 @@ public class Util {
 		System.out.println(result);
 
 	}
-	
+
 	public static void imprimeMatriz(String[][] matriz) {
 		String result = "";
 
@@ -377,13 +375,12 @@ public class Util {
 			return false;
 		}
 	}
-	
+
 	public static int[] getNumerosPrimo(int[] vetor, int[] qtdPrimos) {
 		int[] indicesPrimos = new int[vetor.length];
-		
+
 		for (int i = 0; i < vetor.length; i++) {
-			if (Util.isPrimo(vetor[i]) 
-					&& !Util.isOnArray(indicesPrimos, vetor[i])) {
+			if (Util.isPrimo(vetor[i]) && !Util.isOnArray(indicesPrimos, vetor[i])) {
 				indicesPrimos[qtdPrimos[0]] = vetor[i];
 				qtdPrimos[0]++;
 			}
@@ -442,24 +439,17 @@ public class Util {
 		return cont;
 	}
 
-	public static void salvaHistorico(String operacao, double valor,
-			String[] nomeOperHist, double[] valorOperHist,
+	public static void salvaHistorico(String operacao, double valor, String[] nomeOperHist, double[] valorOperHist,
 			int qtdTransacoes) {
 		nomeOperHist[qtdTransacoes] = operacao;
 		valorOperHist[qtdTransacoes] = valor;
-		
 
 	}
 
-	public static void imprimeHistorico(String[] nomeOperHist, 
-			double[] valorOperHist,
-			int qtdTransacoes) {
+	public static void imprimeHistorico(String[] nomeOperHist, double[] valorOperHist, int qtdTransacoes) {
 		System.out.println("Listando transações:\n");
 		for (int i = 0; i < qtdTransacoes; i++) {
-			System.out.println(
-					"Operação " + (i + 1) + ": " + 
-							nomeOperHist[i] + " no valor de: " + 
-							valorOperHist[i]);
+			System.out.println("Operação " + (i + 1) + ": " + nomeOperHist[i] + " no valor de: " + valorOperHist[i]);
 		}
 		System.out.println();
 
@@ -486,11 +476,9 @@ public class Util {
 
 	}
 
-	public static boolean isTuplaValida(String[][] tabuleiro, 
-			int novaLinha, int novaColuna) {
+	public static boolean isTuplaValida(String[][] tabuleiro, int novaLinha, int novaColuna) {
 		if (// está no intervalo (entre 0 e 2)
-		novaLinha >= 0 && novaLinha < tabuleiro.length 
-		&& novaColuna >= 0 && novaColuna < tabuleiro.length
+		novaLinha >= 0 && novaLinha < tabuleiro.length && novaColuna >= 0 && novaColuna < tabuleiro.length
 		// E se está livre
 				&& tabuleiro[novaLinha][novaColuna] == "_") {
 			return true;
@@ -499,8 +487,7 @@ public class Util {
 		}
 	}
 
-	public static void realizaJogada(String[][] tabuleiro, 
-			int novaLinha, int novaColuna, int jogadorAtual) {
+	public static void realizaJogada(String[][] tabuleiro, int novaLinha, int novaColuna, int jogadorAtual) {
 
 		if (jogadorAtual == 1) {
 			tabuleiro[novaLinha][novaColuna] = "O";
@@ -512,7 +499,7 @@ public class Util {
 
 	public static boolean verificaVitoria(String[][] tabuleiro, int jogadorAtual) {
 		jogadorAtual = Util.getOutroJogador(jogadorAtual);
-		
+
 		for (int i = 0; i < tabuleiro.length; i++) {
 			// Checando as Linhas
 			if (tabuleiro[i][0].equals(tabuleiro[i][1]) && tabuleiro[i][0].equals(tabuleiro[i][2])
@@ -674,13 +661,7 @@ public class Util {
 		for (int i = 0; i < menorMatriz.length; i++) {
 			for (int j = 0; j < menorMatriz.length; j++) {
 				// para cada posição (i,j), obtém o menor
-				menorMatriz[i][j] = 
-						Util.getMenorElemento(
-								mat1[i][j], 
-								mat2[i][j], 
-								mat3[i][j], 
-								mat4[i][j], 
-								maxRand);
+				menorMatriz[i][j] = Util.getMenorElemento(mat1[i][j], mat2[i][j], mat3[i][j], mat4[i][j], maxRand);
 			}
 		}
 
@@ -713,7 +694,7 @@ public class Util {
 
 	public static int[] somaVetores(int[] vet1, int[] vet2) {
 		int[] vetSoma = new int[vet1.length];
-		
+
 		// Para cada posição, soma os elementos de vet1 e vet2
 		for (int i = 0; i < vetSoma.length; i++) {
 			vetSoma[i] = vet1[i] + vet2[i];
@@ -724,13 +705,13 @@ public class Util {
 	public static double getMediaAritMatriz(int[][] matriz) {
 		int soma = 0;
 		double media = 0;
-		
+
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[0].length; j++) {
 				soma += matriz[i][j];
 			}
 		}
-		media = (double) soma/(matriz.length * matriz[0].length); 
+		media = (double) soma / (matriz.length * matriz[0].length);
 		return media;
 	}
 
@@ -739,12 +720,10 @@ public class Util {
 			condominio[andar][apto] = nome;
 			System.out.println("Aluguel realizado com sucesso !");
 		} else {
-			System.out.println("O apartamento andar " + andar 
-									+ ", apto " + apto 
-									+ " já está ocupado pelo condômino "
-									+ condominio[andar][apto]);
+			System.out.println("O apartamento andar " + andar + ", apto " + apto + " já está ocupado pelo condômino "
+					+ condominio[andar][apto]);
 		}
-		
+
 	}
 
 	public static void preencheMatrizComTexto(String[][] condominio, String texto) {
@@ -755,27 +734,25 @@ public class Util {
 		}
 	}
 
-	
+	public static void transfereCondomino(String[][] condominio, String nome, int novoAndar, int novoApto,
+			String texto) {
+		// Verifica se o novo apto está vago
+		if (Util.isAptoVago(condominio, novoAndar, novoApto, texto)) {
+			int[] aptoAtual = Util.getIJMatrizPorNome(condominio, nome);
+			// atualiza novo apto
+			condominio[novoAndar][novoApto] = nome;
+			// atualiza apto antigo
+			condominio[aptoAtual[0]][aptoAtual[1]] = texto;
 
-	public static void transfereCondomino(String[][] condominio, String nome, int novoAndar, int novoApto, String texto) {
-			// Verifica se o novo apto está vago
-			if (Util.isAptoVago(condominio, novoAndar, novoApto, texto)) {
-				int[] aptoAtual = Util.getIJMatrizPorNome(condominio, nome);
-				// atualiza novo apto
-				condominio[novoAndar][novoApto] = nome;
-				// atualiza apto antigo
-				condominio[aptoAtual[0]][aptoAtual[1]] = texto;
-				
-				System.out.println("Transferencia realizada com sucesso !");
-			} else {
-				System.out.println("O andar/apto digitado não está livre");
-			}
-		
-		
+			System.out.println("Transferencia realizada com sucesso !");
+		} else {
+			System.out.println("O andar/apto digitado não está livre");
+		}
+
 	}
 
 	public static int[] getIJMatrizPorNome(String[][] condominio, String nome) {
-		int[] IJ= new int[2];
+		int[] IJ = new int[2];
 		for (int i = 0; i < condominio.length; i++) {
 			for (int j = 0; j < condominio[0].length; j++) {
 				if (condominio[i][j].equalsIgnoreCase(nome)) {
@@ -813,15 +790,12 @@ public class Util {
 			condominio[aptoAtual[0]][aptoAtual[1]] = texto;
 			System.out.println("Desapropriação realizada com sucesso !");
 		} else {
-			System.out
-					.println("O nome digitado não está no condomínio, "
-							+ "portanto não pode ser transferido.");
+			System.out.println("O nome digitado não está no condomínio, " + "portanto não pode ser transferido.");
 		}
-		
+
 	}
 
-	public static void removeDoCondominioPorPosicao(String[][] condominio, 
-			int novoAndar, int novoApto, String texto) {
+	public static void removeDoCondominioPorPosicao(String[][] condominio, int novoAndar, int novoApto, String texto) {
 		// Verifica se o novo apto está vago
 		if (!Util.isAptoVago(condominio, novoAndar, novoApto, texto)) {
 			condominio[novoAndar][novoApto] = texto;
@@ -855,10 +829,9 @@ public class Util {
 	}
 
 	public static void imprimeUltimoTermo(int[] pilha) {
-		int termoDesempilhado = pilha[pilha.length-1];
-		System.out.println("Termo desempilhado: " 
-					+ termoDesempilhado);
-		
+		int termoDesempilhado = pilha[pilha.length - 1];
+		System.out.println("Termo desempilhado: " + termoDesempilhado);
+
 	}
 
 	public static int[] getPilhaSemUltimo(int[] pilha, int[] qtdTermos) {
@@ -872,7 +845,7 @@ public class Util {
 
 		// reduz o contador, porque tem 1 termo a menos
 		qtdTermos[0]--;
-		
+
 		// Retorna a nova Pilha, sem o termo desempilhado
 		return novaPilha;
 	}
@@ -902,6 +875,136 @@ public class Util {
 		} else {
 			return true;
 		}
+
+	}
+
+	public static int calcularFatorial(int numero) {
+		int resultado;
+		// se o número que entrou é zero
+		if (numero == 0) {
+			resultado = 1;
+			// senão, chama o método de novo
+		} else {
+			resultado = numero * calcularFatorial(numero - 1);
+		}
+		return resultado;
+	}
+
+	public static String euAdoroProg(int numero)throws StackOverflowError{
+		String result = "";
+
+		if (numero == 0) {
+			result = "";
+		} else {
+			result = "Eu adoro programação!\n" + euAdoroProg(numero - 1);
+		}
+		return result;
+
+	}
+
+	// método para imprimir Fibonacci
+	public static String imprimeFibonacci(int n1, int n2, int n, int cont) {
+		String saida = "";
+		if (cont == 0) {
+			saida += n1 + ", " + n2 + ", ";
+		}
+		if (cont <= n) {
+			int n3 = n1 + n2;
+			saida += n3 + ", " + imprimeFibonacci(n2, n3, n, ++cont);
+		}
+		return saida;
+	}
+
+	// método pra calcular Fibonacci
+	public static int calculaFibonacci(int N) {
+		int saida;
+		if (N == 0) {
+			saida = 0;
+		} else {
+			if (N == 1) {
+				saida = 1;
+			} else {
+				saida = (calculaFibonacci(N - 2) 
+						+ calculaFibonacci(N - 1));
+			}
+		}
+		return saida;
+	}
+
+	public static String exibePares(int n) {
+		String saida = "";
+		if (n >= 0) {
+			if (n % 2 == 0) {
+				saida = exibePares(n - 1) + n + ", ";
+			} else {
+				saida += exibePares(--n);
+			}
+		}
+		return saida;
+	}
+
+	public static double elevarPotencia(double X, int n) {
+		double resp = X;
+		if (n > 1) {
+			resp = X * elevarPotencia(X, --n);
+		}
+		return resp;
+	}
+
+	public static int calculaSomaDecr(int N) {
+		int result;
+		if (N == 0) {
+			result = 0;
+		} else {
+			result = N + calculaSomaDecr(N - 1);
+		}
+		return result;
+
+	}
+
+	public static int inverteNum(int num, String texto) {
+		if (num > 10) {
+			texto += num % 10 + "" + 
+					inverteNum(num / 10, texto);
+		} else {
+			texto = num + "";
+		}
+		return Integer.parseInt(texto);
+	}
+
+	public static int somaVetRecursao(int[] vet, 
+			int i) {
+		int soma = 0;
+		
+		if (i < vet.length) {
+			soma += vet[i] + 
+					somaVetRecursao(vet, (i + 1));
+		} 
+		return soma;
+	}
+
+	public static void inverteVet(int[] vet, int i) {
+		if (i < vet.length / 2) {
+			int aux = vet[i];
+			vet[i] = vet[vet.length - i - 1];
+			vet[vet.length - i - 1] = aux;
+			inverteVet(vet, (i + 1));
+		}
+	}
+
+	public static int contaKNoVetor(int[] vetor, 
+			int K, int indice) {
+		int cont = 0;
+		if (indice == vetor.length) {
+			return 0;
+		} else {
+			if (vetor[indice] == K) {
+				cont++;
+			}
+			cont += contaKNoVetor(vetor, K, (indice + 1));
+		}
+
+		return cont;
 
 	}
 }

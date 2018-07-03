@@ -22,8 +22,8 @@ public class Principal {
 		Pessoa p6 = new Pessoa("Alberto", 26, 1, 2);
 		p6.solicitarMatricula(santaTeresa);
 		
-		santaTeresa.removerPessoa(p5);
-		//p5.solicitarDesligamento(santaTeresa);
+		//santaTeresa.removerPessoa(p5);
+		p5.solicitarDesligamento(santaTeresa);		
 		
 		p5.solicitarMatricula(santaTeresa);
 		

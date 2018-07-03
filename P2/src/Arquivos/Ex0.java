@@ -1,9 +1,7 @@
 package Arquivos;
 
-import java.io.IOException;
-
 public class Ex0 {	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		final int tam = 10;
 		Pessoa[] pessoasCadastradas = new Pessoa[tam];
 		int qtdPessoas = 0;

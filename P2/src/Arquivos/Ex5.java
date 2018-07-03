@@ -1,5 +1,7 @@
 package Arquivos;
 
+import java.io.IOException;
+
 public class Ex5 {
 	public static void main(String[] args)  {
 
@@ -19,6 +21,9 @@ public class Ex5 {
 						Controle.getPessoas()[i].toSave());
 			}
 
+		} catch (IOException e) {
+			System.out.println("ERRO: Erro de Leitura ou Salvamento de arquivo");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: " + e.getMessage());
 		}

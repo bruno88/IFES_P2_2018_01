@@ -22,7 +22,7 @@ public class GerenciadorDeArquivos {
 
 	}
 	
-	public static void salvarComAppend(String fileName, String texto) throws IOException {
+	public static void salvarComAppend(String fileName, String texto) throws IOException  {
 		// Neste método, concatena-se o novo texto
 		// ao final do arquivo
 		// Atenção para segundo parametro "true" (append)
