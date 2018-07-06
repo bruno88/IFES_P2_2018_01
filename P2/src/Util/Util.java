@@ -1071,8 +1071,8 @@ public class Util {
 		}
 	}
 
-	public static int resolveEImprimeEquacao(int x, String path) throws IOException {
-		int conta;
+	public static long resolveEImprimeEquacao(int x, String path) throws IOException {
+		long conta;
 		if (x == 0) {
 			GerenciadorDeArquivos.salvarComAppend(path, "f(" + x + ") = " + 1);
 			return 1;

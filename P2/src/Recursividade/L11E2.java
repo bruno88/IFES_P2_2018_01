@@ -11,7 +11,7 @@ public class L11E2 {
 		Util.getVetorIntAleatorio(vetor, 1, 20);
 
 		System.out.println("Vetor Original: ");
-		// Util.imprimeVetorInt(vetor);
+		Util.imprimeVetorInt(vetor);
 
 		//
 		int qtd = Util.countMultiplos(vetor, N, i);
