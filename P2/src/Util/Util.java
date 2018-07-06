@@ -1,7 +1,10 @@
 package Util;
 
+import java.io.IOException;
 import java.util.Scanner;
 
+import Arquivos.Controle;
+import Arquivos.GerenciadorDeArquivos;
 import POO.Pessoa;
 
 public class Util {
@@ -890,7 +893,7 @@ public class Util {
 		return resultado;
 	}
 
-	public static String euAdoroProg(int numero)throws StackOverflowError{
+	public static String euAdoroProg(int numero) throws StackOverflowError {
 		String result = "";
 
 		if (numero == 0) {
@@ -924,8 +927,7 @@ public class Util {
 			if (N == 1) {
 				saida = 1;
 			} else {
-				saida = (calculaFibonacci(N - 2) 
-						+ calculaFibonacci(N - 1));
+				saida = (calculaFibonacci(N - 2) + calculaFibonacci(N - 1));
 			}
 		}
 		return saida;
@@ -964,22 +966,19 @@ public class Util {
 
 	public static int inverteNum(int num, String texto) {
 		if (num > 10) {
-			texto += num % 10 + "" + 
-					inverteNum(num / 10, texto);
+			texto += num % 10 + "" + inverteNum(num / 10, texto);
 		} else {
 			texto = num + "";
 		}
 		return Integer.parseInt(texto);
 	}
 
-	public static int somaVetRecursao(int[] vet, 
-			int i) {
+	public static int somaVetRecursao(int[] vet, int i) {
 		int soma = 0;
-		
+
 		if (i < vet.length) {
-			soma += vet[i] + 
-					somaVetRecursao(vet, (i + 1));
-		} 
+			soma += vet[i] + somaVetRecursao(vet, (i + 1));
+		}
 		return soma;
 	}
 
@@ -992,8 +991,7 @@ public class Util {
 		}
 	}
 
-	public static int contaKNoVetor(int[] vetor, 
-			int K, int indice) {
+	public static int contaKNoVetor(int[] vetor, int K, int indice) {
 		int cont = 0;
 		if (indice == vetor.length) {
 			return 0;
@@ -1006,5 +1004,113 @@ public class Util {
 
 		return cont;
 
+	}
+
+	public static int[] ordenaVetRecurs(int[] vetor, int posFixa, int posCompara) {
+		// Se posFixa sair do vetor, retorna antes do erro
+		if (posFixa == vetor.length) {
+			return vetor;
+		} else {
+			// Se posFixa sair do vetor, avança o posFixa
+			if (posCompara == vetor.length) {
+				ordenaVetRecurs(vetor, posFixa + 1, posFixa + 2);
+			} else {
+				if (vetor[posCompara] < vetor[posFixa]) {
+					int aux = vetor[posFixa];
+					vetor[posFixa] = vetor[posCompara];
+					vetor[posCompara] = aux;
+
+				}
+				ordenaVetRecurs(vetor, posFixa, posCompara + 1);
+			}
+		}
+		return vetor;
+	}
+
+	public static int countMultiplos(int[] vetor, int N, int i) {
+		int cont = 0;
+		if (i == vetor.length) {
+			return 0;
+		} else {
+			if (vetor[i] % N == 0) {
+				cont++;
+			}
+
+			return cont + countMultiplos(vetor, N, (i + 1));
+		}
+	}
+
+	public static String exibeMultiplos(int[] vetor, int N, int i) {
+		if (i == vetor.length) {
+			return "";
+		} else {
+			if (vetor[i] % N == 0) {
+				return  "," + String.valueOf(vetor[i]) + 
+						exibeMultiplos(vetor, N, (i + 1))
+						;
+			} else {
+				return exibeMultiplos(vetor, N, (i + 1));
+			}
+
+		}
+	}
+
+	public static int resolveEquacao(int x) {
+		int conta;
+		if (x == 0) {
+			return 1;
+		} else {
+			if (x == 1) {
+				return 2;
+			} else {
+				conta = resolveEquacao(x - 1);
+				conta *= conta;
+				return conta;
+			}
+
+		}
+	}
+
+	public static int resolveEImprimeEquacao(int x, String path) throws IOException {
+		int conta;
+		if (x == 0) {
+			GerenciadorDeArquivos.salvarComAppend(path, "f(" + x + ") = " + 1);
+			return 1;
+		} else {
+			if (x == 1) {
+				GerenciadorDeArquivos.salvarComAppend(path, "f(" + x + ") = " + 2);
+				return 2;
+			} else {
+				conta = resolveEImprimeEquacao(x - 1, path);
+				conta *= conta;
+				GerenciadorDeArquivos.salvarComAppend(path, "f(" + x + ") = " + conta);
+				return conta;
+			}
+
+		}
+	}
+
+	public static int getQtdDivisoresRecurs(int numero, int divisor) {
+		int cont = 0;
+
+		if (divisor > 0) {
+			if (numero % divisor == 0) {
+				cont++;
+			}
+			return cont + getQtdDivisoresRecurs(numero, divisor - 1);
+		} else {
+			return 0;
+		}
+
+	}
+
+	public static boolean isPrimoRecurs(int numero) {
+		int qtdDivisores = getQtdDivisoresRecurs(numero, numero);
+
+		if (qtdDivisores == 2) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
