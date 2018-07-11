@@ -2,7 +2,7 @@ package Recursividade;
 
 import java.io.IOException;
 
-import Arquivos.GerenciadorDeArquivos;
+import Util.GerenciadorDeArquivos;
 import Util.Util;
 
 public class L11E5 {

@@ -1,0 +1,7 @@
+Profissao [nome=Programador, formacao=computação, salarioMedio=2000.0, mediaVagasPorAno=20]
+Profissao [nome=Analista de Sistemas, formacao=computação, salarioMedio=2000.0, mediaVagasPorAno=15]
+Profissao [nome=Engenheiro de Software, formacao=computação, salarioMedio=2500.0, mediaVagasPorAno=10]
+O patrimônio da empresa PCPeças atual é de 100000.0 e espera-se que ele será de 160000.0 em 6 anos.
+Profissao [nome=Programador, formacao=computação, salarioMedio=2000.0, mediaVagasPorAno=20]
+Profissao [nome=Analista de Sistemas, formacao=computação, salarioMedio=2000.0, mediaVagasPorAno=15]
+Profissao [nome=Engenheiro de Software, formacao=computação, salarioMedio=2500.0, mediaVagasPorAno=10]

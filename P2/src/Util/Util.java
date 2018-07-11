@@ -3,8 +3,8 @@ package Util;
 import java.io.IOException;
 import java.util.Scanner;
 
-import Arquivos.Controle;
-import Arquivos.GerenciadorDeArquivos;
+import CorreçãoProva3.Aquisicao;
+import CorreçãoProva3.Venda;
 import POO.Pessoa;
 
 public class Util {
@@ -337,6 +337,18 @@ public class Util {
 	}
 
 	public static double getMediaPond(int[] numeros, int[] pesos) {
+		int numerador = 0, denominador = 0;
+		double mediaPond = 0;
+
+		for (int i = 0; i < numeros.length; i++) {
+			numerador += (numeros[i] * pesos[i]);
+			denominador += pesos[i];
+		}
+		mediaPond = (double) numerador / denominador;
+		return mediaPond;
+	}
+
+	public static double getMediaPond(double[] numeros, int[] pesos) {
 		int numerador = 0, denominador = 0;
 		double mediaPond = 0;
 
@@ -1045,9 +1057,7 @@ public class Util {
 			return "";
 		} else {
 			if (vetor[i] % N == 0) {
-				return  "," + String.valueOf(vetor[i]) + 
-						exibeMultiplos(vetor, N, (i + 1))
-						;
+				return "," + String.valueOf(vetor[i]) + exibeMultiplos(vetor, N, (i + 1));
 			} else {
 				return exibeMultiplos(vetor, N, (i + 1));
 			}
@@ -1057,17 +1067,14 @@ public class Util {
 
 	public static int resolveEquacao(int x) {
 		int conta;
-		if (x == 0) {
-			return 1;
-		} else {
-			if (x == 1) {
-				return 2;
-			} else {
-				conta = resolveEquacao(x - 1);
-				conta *= conta;
-				return conta;
-			}
+		if (x == 1) {
 
+			return 2;
+		} else {
+			conta = resolveEquacao(x - 1);
+			conta *= conta;
+
+			return conta;
 		}
 	}
 
@@ -1112,5 +1119,92 @@ public class Util {
 		} else {
 			return false;
 		}
+	}
+
+	public static double getNumeradorRecur(Venda[] vendas, int i) {
+		if (i == vendas.length) {
+			return 0;
+		} else {
+			double valorTotal = vendas[i].getValorTotal();
+			double peso = vendas[i].getPeso();
+			double numerador = valorTotal * peso;
+			return numerador + getNumeradorRecur(vendas, (i + 1));
+		}
+
+	}
+
+	public static double getNumeradorRecur(Aquisicao[] aquisicoes, int i) {
+		if (i == aquisicoes.length) {
+			return 0;
+		} else {
+			double valorTotal = aquisicoes[i].getValorTotal();
+			double peso = aquisicoes[i].getPeso();
+			double numerador = valorTotal * peso;
+			return numerador + getNumeradorRecur(aquisicoes, (i + 1));
+		}
+
+	}
+
+	public static double getDenominadorRecur(Venda[] vendas, int i) {
+		if (i == vendas.length) {
+			return 0;
+		} else {
+			return (vendas[i].getPeso()) + getDenominadorRecur(vendas, (i + 1));
+		}
+
+	}
+
+	public static double getDenominadorRecur(Aquisicao[] aquisicoes, int i) {
+		if (i == aquisicoes.length) {
+			return 0;
+		} else {
+			return (aquisicoes[i].getPeso()) + getDenominadorRecur(aquisicoes, (i + 1));
+		}
+
+	}
+
+	public static double getMediaPondRecur(Venda[] vendas, int i) {
+		return getNumeradorRecur(vendas, i) 
+				/ getDenominadorRecur(vendas, i);
+	}
+
+	public static double getMediaPondRecur(Aquisicao[] aquisicoes, int i) {
+		return getNumeradorRecur(aquisicoes, i) 
+				/ getDenominadorRecur(aquisicoes, i);
+	}
+
+	public static int buscaBinaria(int[] vetor, int valorProcurado) {
+		int esq = 0;
+		int dir = vetor.length - 1;
+		int meio;
+		int cont = 0;
+		while (esq <= dir) {
+			meio = esq + ((dir - esq) / 2);
+			System.out.println("entrei " + ++cont + " vez. valor do meio: " + vetor[meio]);
+			
+			if (vetor[meio] < valorProcurado) {
+				esq = meio + 1;
+			} else if (vetor[meio] > valorProcurado) {
+				dir = meio - 1;
+			} else {
+				//return meio;
+				return cont;
+			}
+		}
+		//return -1;
+		System.out.println("não encontrado");
+		return cont;
+	}
+	
+	public static int buscaSequencial(int[] vetor, int valorProcurado) {
+		int cont = 0;
+		for (int i = 0; i < vetor.length; i++) {
+			System.out.println("entrei " + ++cont 
+					+ " vez. valor comparado: " + vetor[i]);
+			if (vetor[i] == valorProcurado) {
+				return cont;
+			}
+		}
+		return cont;
 	}
 }

@@ -1,0 +1,6 @@
+1;Bloco de 100 folhas A4;Escritorio;50.00;10;Alberto;Folhas A4 para impressora;07/07/2018;
+9;Modem modelo ABXZ;TI;200.00;5;Susana;Modem para utilização nos setores;06/07/2018;
+13;Cabos de Rede 100 metros;TI;100.00;10;Susana;Cabos para computadores do prédio;05/07/2018;
+14;Folders;Marketing;4.99;10000;Ricardo;Folders para divulgação do evento ABC;04/07/2018;
+17;Caixa com 100 Post-it;Escritorio;0.99;50;Alberto;Post-it para painel KANBAN;03/07/2018;
+20;Garrafa de Vinho tinto;Marketing;199.00;20;Alberto;Presentes para clientes VIP;02/07/2018;

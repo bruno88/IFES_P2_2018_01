@@ -2,6 +2,8 @@ package Arquivos;
 
 import java.io.IOException;
 
+import Util.GerenciadorDeArquivos;
+
 public class Ex5 {
 	public static void main(String[] args)  {
 

@@ -1,0 +1,2 @@
+Resultados do relatório de venda:
+Média ponderada das vendas, conforme peso: 810.9028571428571

@@ -1,7 +1,5 @@
 package Recursividade;
 
-import Util.Util;
-
 public class L11E6 {
 	public static void main(String[] args) {
 		int teste = 300;
